@@ -1,0 +1,336 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+	<TextView
+    	android:id="@+id/tv_app_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_description"
+        android:textStyle="bold" />
+	
+    <Button
+        android:id="@+id/btn_scan"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_txt_scan_devices"
+         />
+    
+   <TextView
+    	android:id="@+id/tv_devices"
+    	android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_devices"
+        android:textStyle="bold" />
+    
+    <ListView
+        android:id="@+id/lv_deviceList"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:padding="3dp" />
+    
+    <TextView
+    	android:id="@+id/tv_services"
+    	android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_services"
+        android:textStyle="bold" />
+    
+    <ListView
+        android:id="@+id/lv_serviceList"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:padding="3dp" />
+    
+    
+    <TextView
+    	android:id="@+id/tv_characteristics"
+    	android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_characteristics"
+        android:textStyle="bold" />
+    
+    <ListView
+        android:id="@+id/lv_characteristicsList"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:padding="3dp" />
+    
+	
+	<LinearLayout
+        android:id="@+id/ll_sensors_right"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+		android:orientation="horizontal" >
+        
+	    <LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+			android:orientation="vertical" >
+			<TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text="R1"/>
+	        <TextView
+		        android:id="@+id/sensortrue7"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text=""
+		        android:textStyle="bold" />
+		</LinearLayout>
+	    
+	    <LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+			android:orientation="vertical" >
+			<TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text="R2"/>
+	        <TextView
+		        android:id="@+id/sensortrue6"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text=""
+		        android:textStyle="bold" />
+		</LinearLayout>
+	    
+	    <LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+			android:orientation="vertical" >
+			<TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text="R3"/>
+		    <TextView
+		        android:id="@+id/sensortrue5"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text=""
+		        android:textStyle="bold" />
+		</LinearLayout>
+	    
+	    <LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+			android:orientation="vertical" >
+			<TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text="R4"/>
+		    <TextView
+		        android:id="@+id/sensortrue4"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text=""
+		        android:textStyle="bold" />
+		</LinearLayout>
+	    
+	    <LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+			android:orientation="vertical" >
+	        <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text="R5"/>
+	        <TextView
+		        android:id="@+id/sensortrue3"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text=""
+		        android:textStyle="bold" />
+		</LinearLayout>
+	    
+	    <LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+			android:orientation="vertical" >
+			<TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text="R6"/>
+	        <TextView
+		        android:id="@+id/sensortrue2"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text=""
+		        android:textStyle="bold" />
+		</LinearLayout>
+	    
+	    <LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+			android:orientation="vertical" >
+		    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text="R7"/>
+		    <TextView
+		        android:id="@+id/sensortrue1"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text=""
+		        android:textStyle="bold" />
+		</LinearLayout>    
+    </LinearLayout>
+    
+    
+	<LinearLayout
+        android:id="@+id/ll_sensors_left"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+		android:orientation="horizontal" >
+		
+        <LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+			android:orientation="vertical" >
+            <TextView
+		        android:id="@+id/sensorfalse1"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text=""
+		        android:textStyle="bold" />
+            
+	        <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text="L14"/>
+		</LinearLayout>
+	    
+        <LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+			android:orientation="vertical" >
+            <TextView
+		        android:id="@+id/sensorfalse2"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text=""
+		        android:textStyle="bold" />
+            
+	        <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text="L13"/>
+		</LinearLayout>
+	    
+        <LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+			android:orientation="vertical" >
+	        
+		    <TextView
+		        android:id="@+id/sensorfalse3"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text=""
+		        android:textStyle="bold" />
+		   	<TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text="L12"/>
+		</LinearLayout>
+	    
+        <LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+			android:orientation="vertical" >
+		    <TextView
+		        android:id="@+id/sensorfalse4"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text=""
+		        android:textStyle="bold" />
+		    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text="L11"/>
+		</LinearLayout>
+	    
+        <LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+			android:orientation="vertical" >
+		    <TextView
+		        android:id="@+id/sensorfalse5"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text=""
+		        android:textStyle="bold" />
+		    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text="L10"/>
+		</LinearLayout>
+	    
+        <LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+			android:orientation="vertical">
+		    <TextView
+		        android:id="@+id/sensorfalse6"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text=""
+		        android:textStyle="bold" />
+		    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text="L9"/>
+		</LinearLayout>
+	    
+        <LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+			android:orientation="vertical">
+		    <TextView
+		        android:id="@+id/sensorfalse7"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text=""
+		        android:textStyle="bold" />
+		    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginRight="10dp"
+		        android:text="L8"/>
+		</LinearLayout>
+	</LinearLayout>
+        
+</LinearLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SimpleSmartTagInfo</string>
+    <string name="app_description">Simple Smart Tag Info</string>
+	<string name="ble_not_supported">Bluetooth LE not supported on this device</string>
+	<string name="bt_on">Bluetooth enabled</string>
+	<string name="bt_not_on">Bluetooth not enabled</string>
+	<string name="btn_txt_scan_devices">Scan for devices</string>
+	<string name="title_devices">Devices</string>
+	<string name="title_services">Services</string>
+	<string name="title_characteristics">Characteristics</string>
+	<string name="sensor_triggered_symbol">X</string>
+</resources>
