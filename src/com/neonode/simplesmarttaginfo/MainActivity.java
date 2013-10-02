@@ -499,4 +499,16 @@ public class MainActivity extends Activity {
             }
 		}
 	};
+	
+	@Override
+    public void onDestroy() {
+        super.onStop();
+
+        if (mBluetoothGatt == null) {
+        	return;
+        }
+        
+        mBluetoothGatt.close();
+        mBluetoothGatt = null;
+    }
 }
