@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +39,8 @@ public class MainActivity extends Activity {
 	
 	/* BUTTONS */	
 	private Button scanDevicesButton;
+	private Button connectKnownMACDeviceButton;
+	private EditText etMacAddress;
 	
 	private LeDeviceListAdapter mDeviceAdapter = null;
 	private LeServiceListAdapter mServiceAdapter = null;
@@ -59,6 +62,11 @@ public class MainActivity extends Activity {
 	// Stops scanning after 10 seconds.
 	private static final long SCAN_PERIOD = 10000;
 	
+	private static long last_notification_time_ms = 0;
+	private static long before_last_notification_time_ms = 0;
+	private static long notification_delay_ms = 0;
+	private static long min_notification_delay_ms = 999999999;
+	
 	private Resources res;
 	
 	// Requests to other activities
@@ -74,9 +82,15 @@ public class MainActivity extends Activity {
 		
 		mBTScanHandler = new Handler();
 		
-		/* get a reference to the QuitButton */
+		/* get a reference to the buttons */
 		scanDevicesButton = (Button)findViewById(R.id.btn_scan);
 		scanDevicesButton.setOnClickListener(scanDevicesButtonListener);
+		
+		connectKnownMACDeviceButton = (Button)findViewById(R.id.btn_connect_known_mac);
+		connectKnownMACDeviceButton.setOnClickListener(connectKnownMACDeviceButtonListener);
+		
+		/* get a reference to text views and edittexts */
+		etMacAddress = (EditText)findViewById(R.id.et_mac_address);
 		
 		//Associating the list view
 		mDeviceListView = (ListView)findViewById(R.id.lv_deviceList);
@@ -314,6 +328,23 @@ public class MainActivity extends Activity {
 		}
 	}
 	
+	private void connectKnownDeviceToGatt(String deviceMacAddress) {
+		scanLeDevice(false);
+		  
+		BluetoothDevice bleDevice = mBluetoothAdapter.getRemoteDevice(deviceMacAddress);
+		mBluetoothGatt = bleDevice.connectGatt(this, false, mGattCallback);
+		  
+		if (mBluetoothServicesList != null && mServiceAdapter != null) {
+			mBluetoothServicesList.clear();
+			mServiceAdapter.notifyDataSetChanged();
+		}
+		  
+		if (mGattCharacteristicsList != null && mCharacteristicAdapter != null) {
+			mGattCharacteristicsList.clear();
+			mCharacteristicAdapter.notifyDataSetChanged();
+		}
+	}
+	
 	// Activity result handling
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
@@ -340,6 +371,14 @@ public class MainActivity extends Activity {
     private OnClickListener scanDevicesButtonListener = new OnClickListener() {
     	public void onClick(View v) {
     		scanLeDevice(true);
+    	}
+    };
+    
+    private OnClickListener connectKnownMACDeviceButtonListener = new OnClickListener() {
+    	public void onClick(View v) {
+    		if (etMacAddress.getText().toString().length() == 17) {
+    			connectKnownDeviceToGatt(etMacAddress.getText().toString());
+    		}
     	}
     };
     
@@ -380,6 +419,29 @@ public class MainActivity extends Activity {
     	@Override
     	// Characteristic notification
     	public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic) {
+    		before_last_notification_time_ms = last_notification_time_ms;
+    		last_notification_time_ms = System.currentTimeMillis();
+    		
+    		notification_delay_ms = last_notification_time_ms - before_last_notification_time_ms;
+    		
+    		if (notification_delay_ms > 1000) {
+    			min_notification_delay_ms = 999999999;
+    		}
+    		
+    		if ((last_notification_time_ms - before_last_notification_time_ms) < min_notification_delay_ms) {
+    			min_notification_delay_ms = last_notification_time_ms - before_last_notification_time_ms;
+    		}
+    		
+    		runOnUiThread(new Runnable() {
+    			public void run() {
+		    		TextView tv_current_notification_delay = (TextView)findViewById(R.id.tv_current_notification_delay);
+		    		tv_current_notification_delay.setText(notification_delay_ms + "ms");
+		    		
+		    		TextView tv_min_notification_delay = (TextView)findViewById(R.id.tv_min_notification_delay);
+		    		tv_min_notification_delay.setText(min_notification_delay_ms + "ms");
+    			}
+    		});
+    		
     		byte[] receivedValue = characteristic.getValue();
 
     		boolean[] receivedValueBool = byteArray2BitArray(receivedValue);

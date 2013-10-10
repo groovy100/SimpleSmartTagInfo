@@ -7,6 +7,7 @@
 	<string name="bt_on">Bluetooth enabled</string>
 	<string name="bt_not_on">Bluetooth not enabled</string>
 	<string name="btn_txt_scan_devices">Scan for devices</string>
+	<string name="btn_txt_connect_known_mac_address">Connect to known MAC address device</string>
 	<string name="title_devices">Devices</string>
 	<string name="title_services">Services</string>
 	<string name="title_characteristics">Characteristics</string>
